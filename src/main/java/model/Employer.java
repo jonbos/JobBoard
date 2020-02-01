@@ -67,6 +67,6 @@ public class Employer {
 	}
 	@Override
 	public String toString() {
-		return name+":	"+location;
+		return name+" "+"("+location+")";
 	}
 }

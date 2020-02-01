@@ -26,7 +26,7 @@ public class EmployerHelper {
 		return allItems;
 	}
 
-	public void deleteItem(Employer toDelete) {
+	public void deleteEmployer(Employer toDelete) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<Employer> typedQuery = em.
@@ -41,7 +41,7 @@ public class EmployerHelper {
 		em.close();
 	}
 
-	public Employer searchForItemById(int id) {
+	public Employer searchForEmployerById(int id) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		Employer found = em.find(Employer.class, id);
@@ -49,7 +49,7 @@ public class EmployerHelper {
 		return found;
 	}
 
-	public void updateItem(Employer toEdit) {
+	public void updateEmployer(Employer toEdit) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.merge(toEdit);
@@ -60,7 +60,7 @@ public class EmployerHelper {
 	public List<Employer> searchForEmployerByName(String empName) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Employer> typedQuery = em.createQuery("SELECT emp FROM Employer emp where emp.name = :empName", Employer.class);
+		TypedQuery<Employer> typedQuery = em.createQuery("SELECT emp FROM Employer emp where (0 < LOCATE(:empName, emp.name))", Employer.class);
 		typedQuery.setParameter("empName", empName);
 		typedQuery.setMaxResults(1);
 		List<Employer> foundItems = typedQuery.getResultList();
@@ -68,7 +68,7 @@ public class EmployerHelper {
 		return foundItems;
 	}
 
-	public List<Employer> searchForItemByLocation(String location) {
+	public List<Employer> searchForEmployerByLocation(String location) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<Employer> typedQuery = em.createQuery("SELECT emp FROM Employer emp WHERE emp.location = :location", Employer.class);
