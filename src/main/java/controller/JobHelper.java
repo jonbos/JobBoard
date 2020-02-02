@@ -30,7 +30,7 @@ public class JobHelper {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		TypedQuery<Job> typedQuery = em.
-				createQuery("SELECT emp FROM Employer emp WHERE emp.id = :id", Job.class);
+				createQuery("SELECT job FROM Job job WHERE job.id = :id", Job.class);
 		typedQuery.setParameter("id", toDelete.getId());
 		typedQuery.setMaxResults(1);
 		
