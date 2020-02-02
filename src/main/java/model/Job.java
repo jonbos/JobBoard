@@ -16,44 +16,44 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.CreationTimestamp;;
 
 @Entity
-@Table(name="jobs")
+@Table(name = "jobs")
 public class Job {
-	
-	@Column(name="title")
+
+	@Column(name = "title")
 	private String title;
-	
-	@Column(name="job_description")
+
+	@Column(name = "job_description")
 	private String jobDescription;
-	
+
 	@ManyToOne
 	private Employer employer;
-	
-	@Id 
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int id;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_date", updatable = false)
 	@CreationTimestamp
 	private Date created;
-	
-    public Date getCreated() {
+
+	public Date getCreated() {
 		return created;
 	}
 
 	@PrePersist
-    protected void onCreate() {
-    	created = new Date();
-    }
+	protected void onCreate() {
+		created = new Date();
+	}
 
 	public Job() {
-		
+
 	}
 
 	public Job(String jobTitle, Employer e) {
 		this.employer = e;
-		this.title=jobTitle;
+		this.title = jobTitle;
 	}
 
 	public String getTitle() {

@@ -15,10 +15,12 @@ public class JobView implements EntityView {
 	private static JobHelper jobHelper = new JobHelper();
 	private static EmployerHelper empHelper = new EmployerHelper();
 	private static EmployerView empView;
+
 	public JobView(Scanner in) {
 		JobView.empView = new EmployerView(in);
-		JobView.in=in;
+		JobView.in = in;
 	}
+
 	@Override
 	public void add() {
 		System.out.print("Enter job title: ");
@@ -54,7 +56,7 @@ public class JobView implements EntityView {
 			System.out.println("2 : Update Description");
 			System.out.println("3 : Update Employer");
 			System.out.print("Your selection: ");
-			
+
 			int update = in.nextInt();
 			in.nextLine();
 
@@ -88,38 +90,43 @@ public class JobView implements EntityView {
 		Job j = jobHelper.searchForJobById(id);
 		jobHelper.deleteJob(j);
 	}
-	
+
 	private static void printHeader() {
-		System.out.println("---------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"---------------------------------------------------------------------------------------------------------------------");
 		String format = "%1$-4s %2$-40s %3$-40s %4$-10s";
 		System.out.println(String.format(format, "ID", "Job Title", "Employer", "Date Posted"));
-		System.out.println("---------------------------------------------------------------------------------------------------------------------");
+		System.out.println(
+				"---------------------------------------------------------------------------------------------------------------------");
 	}
 
 	private static void printJobsList(List<Job> jobs) {
 		printHeader();
 		for (Job job : jobs) {
 			String format = "%1$-4s %2$-40s %3$-40s %4$-10s";
-			System.out.println(String.format(format, job.getId(), job.getTitle(), job.getEmployer().getName(), job.getCreated()));
+			System.out.println(
+					String.format(format, job.getId(), job.getTitle(), job.getEmployer().getName(), job.getCreated()));
 		}
 	}
+
 	public void details() {
 		view();
 		System.out.print("Enter the job ID to show details: ");
 		int id = in.nextInt();
 		Job j = jobHelper.searchForJobById(id);
-		System.out.println(WordUtils.wrap("JOB TITLE: "+j.getTitle(), 100));
-		System.out.println(WordUtils.wrap("EMPLOYER : "+ j.getEmployer().getName(), 100));
-		System.out.println(WordUtils.wrap("POST DATE: "+j.getCreated(), 100));
-		System.out.println(WordUtils.wrap("EMPLOYER LOCATION : "+ j.getEmployer().getLocation(), 100));
+		System.out.println(WordUtils.wrap("JOB TITLE: " + j.getTitle(), 100));
+		System.out.println(WordUtils.wrap("EMPLOYER : " + j.getEmployer().getName(), 100));
+		System.out.println(WordUtils.wrap("POST DATE: " + j.getCreated(), 100));
+		System.out.println(WordUtils.wrap("EMPLOYER LOCATION : " + j.getEmployer().getLocation(), 100));
 
 		System.out.print("DESCRIPTION: ");
-		String desc =  j.getJobDescription();
+		String desc = j.getJobDescription();
 		String lines[] = desc.split("\\r?\\n");
 		for (String line : lines) {
 			System.out.println(WordUtils.wrap(line, 85));
 		}
 	}
+
 	public void cleanUp() {
 		jobHelper.cleanUp();
 	}

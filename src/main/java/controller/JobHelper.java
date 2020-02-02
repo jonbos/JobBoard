@@ -1,4 +1,5 @@
 package controller;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,9 +10,9 @@ import javax.persistence.TypedQuery;
 import model.Job;
 
 public class JobHelper {
-	
+
 	static EntityManagerFactory emf = Persistence.createEntityManagerFactory("JobBoard");
-	
+
 	public void insertJob(Job job) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
@@ -19,8 +20,8 @@ public class JobHelper {
 		em.getTransaction().commit();
 		em.close();
 	}
-	
-	public List<Job> showAllJobs(){
+
+	public List<Job> showAllJobs() {
 		EntityManager em = emf.createEntityManager();
 		List<Job> allItems = em.createQuery("SELECT job FROM Job job ORDER BY job.created DESC").getResultList();
 		return allItems;
@@ -29,13 +30,12 @@ public class JobHelper {
 	public void deleteJob(Job toDelete) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Job> typedQuery = em.
-				createQuery("SELECT job FROM Job job WHERE job.id = :id", Job.class);
+		TypedQuery<Job> typedQuery = em.createQuery("SELECT job FROM Job job WHERE job.id = :id", Job.class);
 		typedQuery.setParameter("id", toDelete.getId());
 		typedQuery.setMaxResults(1);
-		
+
 		Job result = typedQuery.getSingleResult();
-		
+
 		em.remove(result);
 		em.getTransaction().commit();
 		em.close();
@@ -60,8 +60,9 @@ public class JobHelper {
 	public List<Job> searchForJobByTitle(String jobTitle) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
-		//SEARCH
-		TypedQuery<Job> typedQuery = em.createQuery("SELECT job FROM Job job WHERE (0 < LOCATE(:jobTitle, job.title))", Job.class);
+		// SEARCH
+		TypedQuery<Job> typedQuery = em.createQuery("SELECT job FROM Job job WHERE (0 < LOCATE(:jobTitle, job.title))",
+				Job.class);
 		typedQuery.setParameter("jobTitle", jobTitle);
 		List<Job> foundItems = typedQuery.getResultList();
 		em.close();
@@ -78,7 +79,7 @@ public class JobHelper {
 		em.close();
 		return foundItems;
 	}
-	
+
 	public void cleanUp() {
 		emf.close();
 	}

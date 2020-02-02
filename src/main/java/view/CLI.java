@@ -4,23 +4,16 @@ import java.util.Scanner;
 
 public class CLI {
 	static Scanner in = new Scanner(System.in);
-	
+
 	static ViewFactory viewFactory = new ViewFactory(in);
-	
-	final static String MENU_PROMPT = 
-			"Select an item:\n*  "
-			+ "1 -- Add an item\n*  "
-			+ "2 -- Edit an item\n*  "
-			+ "3 -- Delete an item\n*  "
-			+ "4 -- View the list\n*  "
-			+ "5 -- View details\n*  "
-			+ "6 -- Exit the awesome program\n*  "
-			+ "Your selection: ";
+
+	final static String MENU_PROMPT = "Select an item:\n*  " + "1 -- Add an item\n*  " + "2 -- Edit an item\n*  "
+			+ "3 -- Delete an item\n*  " + "4 -- View the list\n*  " + "5 -- View details\n*  "
+			+ "6 -- Exit the awesome program\n*  " + "Your selection: ";
 
 	public static void main(String[] args) {
 		runMenu();
 	}
-
 
 	private static void runMenu() {
 		boolean quit = false;
@@ -47,7 +40,7 @@ public class CLI {
 			}
 		}
 	}
-	
+
 	private static String promptEmpOrJob(String action) {
 		System.out.println(String.format("*  What would you like to %s?:", action));
 		System.out.println(String.format("*  1 -- %s EMPLOYERS", action));

@@ -13,7 +13,7 @@ public class EmployerView implements EntityView {
 	private static EmployerHelper empHelper = new EmployerHelper();
 
 	public EmployerView(Scanner in) {
-		EmployerView.in=in;
+		EmployerView.in = in;
 	}
 
 	@Override
@@ -80,12 +80,14 @@ public class EmployerView implements EntityView {
 		Employer e = empHelper.searchForEmployerById(empID);
 		empHelper.deleteEmployer(e);
 	}
-	
+
 	private static void printEmployerHeader() {
-		System.out.println(String.format("----------------------------------------------------------------------------"));
+		System.out
+				.println(String.format("----------------------------------------------------------------------------"));
 		String format = "%1$-4s %2$-40s %3$-40s";
 		System.out.println(String.format(format, "ID", "Employer Name", "Employer Location"));
-		System.out.println(String.format("----------------------------------------------------------------------------"));
+		System.out
+				.println(String.format("----------------------------------------------------------------------------"));
 	}
 
 	private static void printEmployerList(List<Employer> allEmployers) {
@@ -101,8 +103,8 @@ public class EmployerView implements EntityView {
 		System.out.print("Enter the employer ID to show details: ");
 		int id = in.nextInt();
 		Employer e = empHelper.searchForEmployerById(id);
-		System.out.println(WordUtils.wrap("EMPLOYER NAME: "+e.getName(), 100));
-		System.out.println(WordUtils.wrap("EMPLOYER LOCATION : "+ e.getLocation(), 100));
+		System.out.println(WordUtils.wrap("EMPLOYER NAME: " + e.getName(), 100));
+		System.out.println(WordUtils.wrap("EMPLOYER LOCATION : " + e.getLocation(), 100));
 		System.out.println("EMPLOYER DESCRIPTION:");
 		String desc = e.getDescription();
 		String lines[] = desc.split("\\r?\\n");
@@ -110,9 +112,9 @@ public class EmployerView implements EntityView {
 			System.out.println(WordUtils.wrap(line, 100));
 		}
 	}
+
 	public void cleanUp() {
 		empHelper.cleanUp();
 	}
 
 }
-
