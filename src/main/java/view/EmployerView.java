@@ -30,7 +30,6 @@ public class EmployerView implements EntityView {
 	public void view() {
 		List<Employer> allEmployers = empHelper.showAllEmployers();
 		printEmployerList(allEmployers);
-
 	}
 
 	@Override
@@ -49,7 +48,6 @@ public class EmployerView implements EntityView {
 			System.out.println("1 : Update Name");
 			System.out.println("2 : Update Location");
 			System.out.println("3 : Update Description");
-			
 			System.out.print("Your selection: ");
 
 			int update = in.nextInt();
@@ -112,5 +110,9 @@ public class EmployerView implements EntityView {
 			System.out.println(WordUtils.wrap(line, 100));
 		}
 	}
+	public void cleanUp() {
+		empHelper.cleanUp();
+	}
+
 }
 

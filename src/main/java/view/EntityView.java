@@ -6,4 +6,5 @@ public interface EntityView {
 	public void edit();
 	public void delete();
 	public void details();
+	public void cleanUp();
 }

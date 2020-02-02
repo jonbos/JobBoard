@@ -53,7 +53,8 @@ public class JobView implements EntityView {
 			System.out.println("1 : Update Title");
 			System.out.println("2 : Update Description");
 			System.out.println("3 : Update Employer");
-
+			System.out.print("Your selection: ");
+			
 			int update = in.nextInt();
 			in.nextLine();
 
@@ -77,7 +78,6 @@ public class JobView implements EntityView {
 		} else {
 			System.out.println("---- No results found");
 		}
-
 	}
 
 	@Override
@@ -111,7 +111,6 @@ public class JobView implements EntityView {
 		System.out.println(WordUtils.wrap("JOB TITLE: "+j.getTitle(), 100));
 		System.out.println(WordUtils.wrap("EMPLOYER : "+ j.getEmployer().getName(), 100));
 		System.out.println(WordUtils.wrap("POST DATE: "+j.getCreated(), 100));
-		System.out.println(WordUtils.wrap("EMPLOYER : "+ j.getEmployer().getName(), 100));
 		System.out.println(WordUtils.wrap("EMPLOYER LOCATION : "+ j.getEmployer().getLocation(), 100));
 
 		System.out.print("DESCRIPTION: ");
@@ -120,5 +119,8 @@ public class JobView implements EntityView {
 		for (String line : lines) {
 			System.out.println(WordUtils.wrap(line, 85));
 		}
+	}
+	public void cleanUp() {
+		jobHelper.cleanUp();
 	}
 }

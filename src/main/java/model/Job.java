@@ -28,11 +28,10 @@ public class Job {
 	@ManyToOne
 	private Employer employer;
 	
-	@Id
+	@Id 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
-	
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "create_date", updatable = false)
