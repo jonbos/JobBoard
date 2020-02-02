@@ -1,7 +1,5 @@
 package model;
 
-import model.Employer;
-
 import java.util.Date;
 
 import javax.persistence.Column;
