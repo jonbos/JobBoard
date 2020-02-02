@@ -2,9 +2,6 @@ package view;
 
 import java.util.Scanner;
 
-import controller.EmployerHelper;
-import controller.JobHelper;
-
 public class CLI {
 	static Scanner in = new Scanner(System.in);
 	
@@ -49,13 +46,12 @@ public class CLI {
 				quit = true;
 			}
 		}
-		
 	}
+	
 	private static String promptEmpOrJob(String action) {
 		System.out.println(String.format("*  What would you like to %s?:", action));
 		System.out.println(String.format("*  1 -- %s EMPLOYERS", action));
 		System.out.println(String.format("*  2 -- %s JOBS", action));
-		System.out.println("*  3 -- Return to main menu");
 		System.out.print("*  Your selection: ");
 
 		int choice = in.nextInt();
@@ -66,18 +62,13 @@ public class CLI {
 			return "EMPLOYER";
 		case 2:
 			return "JOB";
-		case 3:
-			return "BACK";
 		default:
-			return "";
+			return null;
 		}
 	}
-
 
 	private static void cleanUp() {
 		viewFactory.getView("JOB").cleanUp();
 		viewFactory.getView("EMPLOYER").cleanUp();
 	}
-
-
 }

@@ -40,7 +40,7 @@ public class JobView implements EntityView {
 	@Override
 	public void edit() {
 		List<Job> foundItems;
-		System.out.println("Enter job title: ");
+		System.out.print("Enter job title: ");
 		String jobTitle = in.nextLine();
 		foundItems = jobHelper.searchForJobByTitle(jobTitle);
 		if (!foundItems.isEmpty()) {
