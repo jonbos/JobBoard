@@ -17,21 +17,41 @@
 			<artifactId>eclipselink</artifactId>
 			<version>2.7.5</version>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>javax.persistence</artifactId>
 			<version>2.2.1</version>
+		</dependency>
+ -->		<dependency>
+			<groupId>org.kie.modules</groupId>
+			<artifactId>org-apache-commons-lang3</artifactId>
+			<version>6.5.0.Final</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>5.4.9.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.kie.modules</groupId>
-			<artifactId>org-apache-commons-lang3</artifactId>
-			<version>6.5.0.Final</version>
-			<type>pom</type>
 		</dependency>
 	</dependencies>
 </project>

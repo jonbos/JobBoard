@@ -24,6 +24,7 @@ public class JobHelper {
 	public List<Job> showAllJobs() {
 		EntityManager em = emf.createEntityManager();
 		List<Job> allItems = em.createQuery("SELECT job FROM Job job ORDER BY job.created DESC").getResultList();
+		em.close();
 		return allItems;
 	}
 
