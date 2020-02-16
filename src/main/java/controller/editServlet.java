@@ -64,7 +64,7 @@ public class editServlet extends HttpServlet {
 			
 			jobDAO.update(job);
 			
-			path = "/viewJobDetailsServlet?id=".concat(id.toString());
+			path = "/viewDetailsServlet?type=job&id=".concat(id.toString());
 
 
 		} else if (type.equals("employer")) {
@@ -77,7 +77,7 @@ public class editServlet extends HttpServlet {
 			emp.setDescription(empDesc);
 			emp.setLocation(empLoc);
 			empDAO.update(emp);
-			path = "/viewEmployerDetailsServlet?id=".concat(id.toString());
+			path = "/viewDetailsServlet?type=employer&id=".concat(id.toString());
 		}
 		request.getServletContext().getRequestDispatcher(path).forward(request, response);
 	}

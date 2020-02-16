@@ -28,8 +28,7 @@ public class NavigationServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 	}
 
 	/**
