@@ -1,24 +1,20 @@
 <%@ page
 	language="java"
 	contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-%>
+	pageEncoding="UTF-8"%>
 <%@ taglib
 	prefix="c"
-	uri="http://java.sun.com/jsp/jstl/core"
-%>
+	uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <link
 	rel="stylesheet"
-	href="base.css"
-/>
+	href="base.css" />
 <link
 	rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
->
+	href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 
 <meta charset="UTF-8">
 <title>Employer Details</title>
@@ -33,9 +29,10 @@
 						<h1 class="title">${employer.getName() }</h1>
 						<h1 class="subtitle">${employer.getLocation() }</h1>
 						<div class="box">
-						<h3 class="is-size-4">Description</h3>
-						
-						${employer.getDescription()}</div>
+							<h3 class="is-size-4">Description</h3>
+
+							${employer.getDescription()}
+						</div>
 					</div>
 					<div class="column">
 						<label class="subtitle"> Current Listings </label>
@@ -51,13 +48,11 @@
 							<tbody>
 								<jsp:useBean
 									id="dao"
-									class="controller.JobHelper"
-								/>
+									class="controller.JobDAO" />
 
 								<c:forEach
 									var="job"
-									items="${dao.searchForJobByEmployerId(employer.getId())}"
-								>
+									items="${dao.searchForJobByEmployerId(employer.getId())}">
 									<tr>
 										<td><a href="viewJobDetailsServlet?id=${job.getId() }"><strong>${job.getTitle()}</strong></a></td>
 										<td>${job.getCreated()}</td>
@@ -67,7 +62,24 @@
 						</table>
 					</div>
 				</div>
-
+				<form
+					method="post"
+					action="navigationServlet?type=employer&id=${employer.getId()}">
+					<div class="field is-grouped">
+						<div class="control">
+							<button
+								name="action"
+								value="edit"
+								class="button is-link">Edit</button>
+						</div>
+						<div class="control">
+							<button
+								name=action
+								value="delete"
+								class="button is-link is-danger">Delete</button>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</section>

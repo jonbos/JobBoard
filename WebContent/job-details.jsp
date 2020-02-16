@@ -24,14 +24,16 @@
 	<section>
 		<div class="container hero-box">
 			<div class="column">
-				<div class="box has-background-grey-lighter">
+				<div class="box">
 					<h1 class="title">${job.getTitle() }</h1>
 					<h1 class="subtitle">
 						<a
 							href="viewEmployerDetailsServlet?id=${job.getEmployer().getId() }">${job.getEmployer().getName() }</a>
 					</h1>
-					<label class="label">Description</label>
-					<div class="box is-bordered">${job.getJobDescription()}</div>
+					<div class="box is-bordered">
+						<h2 class="subtitle">Description</h2>
+						${job.getJobDescription()}
+					</div>
 					<form
 						method="post"
 						action="navigationServlet?type=job&id=${job.getId()}">
