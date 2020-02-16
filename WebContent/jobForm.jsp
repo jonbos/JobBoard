@@ -40,7 +40,7 @@ https://jesobreira.github.io/Bulma-Form-Builder/
 					id="jobEmployer"
 					name="jobEmployer"
 					class="">
-
+				<option disabled selected="selected">Select Employer</option>
 					<jsp:useBean
 						id="dao"
 						class="controller.EmployerDAO" />
