@@ -73,9 +73,18 @@ public class JobHelper {
 	public List<Job> searchForJobByEmployerName(String empName) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<Job> typedQuery = em.createQuery("SELECT job FROM Job job WHERE job.emp.name = :empName", Job.class);
+		TypedQuery<Job> typedQuery = em.createQuery("SELECT job FROM Job job WHERE job.employer.name = :empName", Job.class);
 		typedQuery.setParameter("empName", empName);
-		typedQuery.setMaxResults(1);
+		List<Job> foundItems = typedQuery.getResultList();
+		em.close();
+		return foundItems;
+	}
+
+	public List<Job> searchForJobByEmployerId(int empId) {
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Job> typedQuery = em.createQuery("SELECT job FROM Job job WHERE job.employer.id = :empId", Job.class);
+		typedQuery.setParameter("empId", empId);
 		List<Job> foundItems = typedQuery.getResultList();
 		em.close();
 		return foundItems;
