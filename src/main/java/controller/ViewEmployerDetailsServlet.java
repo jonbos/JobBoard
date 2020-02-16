@@ -31,7 +31,7 @@ public class viewEmployerDetailsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		EmployerHelper dao = new EmployerHelper();
+		EmployerDAO dao = new EmployerDAO();
 		Integer id = Integer.parseInt(request.getParameter("id"));
 		Employer employer = dao.searchForEmployerById(id);
 		request.setAttribute("employer", employer);

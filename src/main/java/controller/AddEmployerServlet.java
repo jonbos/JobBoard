@@ -41,7 +41,7 @@ public class AddEmployerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		EmployerHelper dao = new EmployerHelper();
+		EmployerDAO dao = new EmployerDAO();
 		Employer emp = new Employer();
 		String empName = request.getParameter("empName");
 		String empDesc = request.getParameter("empDescription");

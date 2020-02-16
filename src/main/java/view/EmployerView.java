@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 import org.apache.commons.lang3.text.WordUtils;
 
-import controller.EmployerHelper;
+import controller.EmployerDAO;
 import model.Employer;
 
 public class EmployerView implements EntityView {
 	private static Scanner in;
-	private static EmployerHelper empHelper = new EmployerHelper();
+	private static EmployerDAO empHelper = new EmployerDAO();
 
 	public EmployerView(Scanner in) {
 		EmployerView.in = in;

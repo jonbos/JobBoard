@@ -29,7 +29,7 @@
 
 	<jsp:useBean
 		id="dao"
-		class="controller.JobHelper"
+		class="controller.JobDAO"
 	/>
 
 	<div class="container hero-box">

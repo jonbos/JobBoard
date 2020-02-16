@@ -1,15 +1,14 @@
 package controller;
 
 public class DAOFactory {
-
-	public static JobHelper getDAO(String type) {
+	public static DAO getDAO(String type) {
 		switch (type) {
 		case "job":
-			return new JobHelper();
+			return new JobDAO();
 		case "employer":
-			return new EmployerHelper();
+			return new EmployerDAO();
 		default:
-			break;
+			return null;
 		}
 	}
 }

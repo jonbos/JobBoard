@@ -36,7 +36,7 @@
 					name="empId">
 					<jsp:useBean
 						id="dao"
-						class="controller.EmployerHelper" />
+						class="controller.EmployerDAO" />
 					<c:forEach
 						var="employer"
 						items="${dao.showAllEmployers()}">

@@ -40,8 +40,8 @@ public class AddJobServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		JobHelper jobDao = new JobHelper();
-		EmployerHelper empDao = new EmployerHelper();
+		JobDAO jobDao = new JobDAO();
+		EmployerDAO empDao = new EmployerDAO();
 		Job job = new Job();
 		Integer empId = Integer.parseInt(request.getParameter("empId"));
 		String jobTitle = request.getParameter("jobTitle");

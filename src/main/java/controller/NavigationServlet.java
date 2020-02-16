@@ -38,12 +38,22 @@ public class NavigationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		EmployerHelper empDao = new EmployerHelper();
-		JobHelper jobDao = new JobHelper();
+		String path = "/index.jsp";
 		String type = request.getParameter("type");
 		String action = request.getParameter("action");
-		String id = request.getParameter("id");
-		response.getWriter().append(type).append(action).append(id);
+		Integer id = Integer.parseInt(request.getParameter("id"));
+
+		DAO dao = DAOFactory.getDAO(type);
+
+		if (action.equals("delete")) {
+			dao.delete(dao.get(id));
+		} else if (action.equals("edit")) {
+			Object toEdit = dao.get(id);
+			request.setAttribute("toEdit", toEdit);
+			path = "/edit.jsp?type=".concat(type);
+		}
+
+		request.getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 }
