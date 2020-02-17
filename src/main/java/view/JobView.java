@@ -30,12 +30,12 @@ public class JobView implements EntityView {
 		int empID = in.nextInt();
 		Employer e = empHelper.searchForEmployerById(empID);
 		Job toAdd = new Job(jobTitle, e);
-		jobHelper.insertJob(toAdd);
+		jobHelper.insert(toAdd);
 	}
 
 	@Override
 	public void view() {
-		List<Job> allJobs = jobHelper.showAllJobs();
+		List<Job> allJobs = jobHelper.getAll();
 		printJobsList(allJobs);
 	}
 
@@ -50,7 +50,7 @@ public class JobView implements EntityView {
 			System.out.print("Which ID to edit: ");
 			int idToEdit = in.nextInt();
 
-			Job toEdit = jobHelper.searchForJobById(idToEdit);
+			Job toEdit = jobHelper.get(idToEdit);
 			System.out.println("Retrieved " + toEdit.getTitle());
 			System.out.println("1 : Update Title");
 			System.out.println("2 : Update Description");
@@ -75,7 +75,7 @@ public class JobView implements EntityView {
 				Employer e = empHelper.searchForEmployerById(newEmpID);
 				toEdit.setEmployer(e);
 			}
-			jobHelper.updateJob(toEdit);
+			jobHelper.update(toEdit);
 
 		} else {
 			System.out.println("---- No results found");
@@ -87,8 +87,8 @@ public class JobView implements EntityView {
 		view();
 		System.out.print("Enter the job ID to delete: ");
 		int id = in.nextInt();
-		Job j = jobHelper.searchForJobById(id);
-		jobHelper.deleteJob(j);
+		Job j = jobHelper.get(id);
+		jobHelper.delete(j);
 	}
 
 	private static void printHeader() {
@@ -113,7 +113,7 @@ public class JobView implements EntityView {
 		view();
 		System.out.print("Enter the job ID to show details: ");
 		int id = in.nextInt();
-		Job j = jobHelper.searchForJobById(id);
+		Job j = jobHelper.get(id);
 		System.out.println(WordUtils.wrap("JOB TITLE: " + j.getTitle(), 100));
 		System.out.println(WordUtils.wrap("EMPLOYER : " + j.getEmployer().getName(), 100));
 		System.out.println(WordUtils.wrap("POST DATE: " + j.getCreated(), 100));
