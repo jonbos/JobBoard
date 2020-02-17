@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
@@ -26,6 +27,7 @@ public class Job {
 	private String jobDescription;
 
 	@ManyToOne
+	@JoinColumn(name="employer_id")
 	private Employer employer;
 
 	@Id
