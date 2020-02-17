@@ -31,7 +31,7 @@
 		<section class="hero">
 			<div class="hero-body">
 				<div class="container">
-					<h1 class="title">Welcome to the Job Board! You're viewing all
+					<h1 class="title">Welcome to the Job Search! You're viewing all
 						listings</h1>
 					<h2 class="subtitle">Click on a job listing or employer to
 						view details.</h2>
@@ -54,15 +54,15 @@
 					<tbody>
 						<c:forEach
 							var="job"
-							items="${dao.showAllJobs()}">
+							items="${dao.getAll()}">
 							<tr>
 								<td><a
-									href="viewDetailsServlet?type=job&id=${job.getId() }"><strong>${job.getTitle()}</strong></a></td>
+									href="viewDetailsServlet?type=job&id=${job.id }"><strong>${job.title}</strong></a></td>
 								<td><a
-									href="viewDetailsServlet?type=employer&id=${job.getEmployer().getId() }">${job.getEmployer().getName()}</a></td>
-								<td>${job.getEmployer().getLocation()}</td>
+									href="viewDetailsServlet?type=employer&id=${job.employer.id }">${job.employer.name}</a></td>
+								<td>${job.employer.location}</td>
 
-								<td>${job.getCreated()}</td>
+								<td>${job.created}</td>
 							</tr>
 						</c:forEach>
 					</tbody>

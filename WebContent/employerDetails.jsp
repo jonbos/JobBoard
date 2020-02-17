@@ -10,12 +10,11 @@
 	<div class="container">
 		<div class="columns">
 			<div class="column is-three-fifths">
-				<h1 class="title">${toView.getName() }</h1>
-				<h1 class="subtitle">${toView.getLocation() }</h1>
+				<h1 class="title">${toView.name }</h1>
+				<h1 class="subtitle">${toView.location }</h1>
 				<div class="box">
 					<h3 class="is-size-4">Description</h3>
-
-					${toView.getDescription()}
+					<c:out value="${toView.description}"></c:out>
 				</div>
 			</div>
 			<div class="column">
@@ -36,10 +35,11 @@
 
 						<c:forEach
 							var="job"
-							items="${dao.searchForJobByEmployerId(toView.getId())}">
+							items="${dao.searchForJobByEmployerId(toView.id)}">
 							<tr>
-								<td><a href="viewDetailsServlet?type=job&id=${job.getId() }"><strong>${job.getTitle()}</strong></a></td>
-								<td>${job.getCreated()}</td>
+								<td><a
+									href="viewDetailsServlet?type=job&id=${job.id }"><strong>${job.title}</strong></a></td>
+								<td>${job.created}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -48,7 +48,7 @@
 		</div>
 		<form
 			method="post"
-			action="navigationServlet?type=employer&id=${toView.getId()}">
+			action="navigationServlet?type=employer&id=${toView.id}">
 			<div class="field is-grouped">
 				<div class="control">
 					<button

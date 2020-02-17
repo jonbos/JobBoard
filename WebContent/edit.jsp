@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>EDIT</title>
+<title>Job Search | EDIT</title>
 <link
 	rel="stylesheet"
 	href="base.css" />
@@ -29,7 +29,7 @@
 				<c:when test="${param.type == 'employer'}">
 					<h1 class="title">
 						Editing
-						<c:out value="${toEdit.getName() }"></c:out>
+						<c:out value="${toEdit.name }"></c:out>
 					</h1>
 					<form
 						method="post"
@@ -39,10 +39,15 @@
 						<input
 							type="hidden"
 							name="id"
-							value="${toEdit.getId() }" />
+							value="${toEdit.id }" />
 					</form>
 				</c:when>
 				<c:when test="${param.type == 'job'}">
+					<h1 class="title">
+						Editing
+						<c:out value="${toEdit.title }"></c:out>
+					</h1>
+
 					<form
 						method="post"
 						action="editServlet?type=job"
@@ -51,7 +56,7 @@
 						<input
 							type="hidden"
 							name="id"
-							value="${toEdit.getId() }" />
+							value="${toEdit.id }" />
 					</form>
 				</c:when>
 			</c:choose>

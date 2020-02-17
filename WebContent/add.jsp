@@ -32,7 +32,7 @@
 						<input
 							type="hidden"
 							name="id"
-							value="${toEdit.getId() }" />
+							value="${toEdit.id }" />
 					</form>
 				</c:when>
 				<c:when test="${param.type == 'job'}">
@@ -45,7 +45,7 @@
 						<input
 							type="hidden"
 							name="id"
-							value="${toEdit.getId() }" />
+							value="${toEdit.id }" />
 					</form>
 				</c:when>
 			</c:choose>

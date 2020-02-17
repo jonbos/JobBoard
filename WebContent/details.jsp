@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Job Board | DETAILS</title>
+<title>Job Search | DETAILS</title>
 <link
 	rel="stylesheet"
 	href="base.css" />

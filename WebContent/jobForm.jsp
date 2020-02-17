@@ -23,7 +23,7 @@ https://jesobreira.github.io/Bulma-Form-Builder/
 				name="jobTitle"
 				type="text"
 				placeholder="<c:out value="${empty toEdit ? 'Job Title' : ''}" />"
-				value="<c:out value='${empty toEdit ? "" : toEdit.getTitle() }' />"
+				value="<c:out value='${empty toEdit ? "" : toEdit.title }' />"
 				class="input "
 				required>
 		</div>
@@ -48,12 +48,12 @@ https://jesobreira.github.io/Bulma-Form-Builder/
 					<c:forEach
 						var="employer"
 						items="${dao.showAllEmployers()}">
-						<option value="${employer.getId() }"
-						<c:if test="${employer.getName() == toEdit.getEmployer().getName() }">
+						<option value="${employer.id }"
+						<c:if test="${employer.getName() == toEdit.employer.name }">
 							<c:out value='selected="selected'/>
 						</c:if>
 						>
-							${employer.getName() }
+							${employer.name }
 						</option>
 					</c:forEach>
 				</select>
@@ -68,11 +68,10 @@ https://jesobreira.github.io/Bulma-Form-Builder/
 			for="jobDescription">Job Description</label>
 		<div class="control">
 			<textarea
-				wrap="soft"
 				class="textarea"
 				id="jobDescription"
-				placeholder="<c:out value="${empty toEdit ? 'Brief Employee Description' : ''}" />"
-				name="jobDescription"><c:out value="${empty toEdit ? '' : toEdit.getJobDescription() }" /></textarea>
+				placeholder="<c:out value="${empty toEdit ? 'Job Description' : ''}" />"
+				name="jobDescription"><c:out value="${empty toEdit ? '' : toEdit.jobDescription }" /></textarea>
 		</div>
 	</div>
 	<!-- Button -->

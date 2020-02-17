@@ -10,18 +10,18 @@
 <section>
 	<div class="container hero-box">
 		<div class="column">
-			<h1 class="title">${toView.getTitle() }</h1>
+			<h1 class="title">${toView.title }</h1>
 			<h1 class="subtitle">
 				<a
-					href="viewDetailsServlet?type=employer&id=${toView.getEmployer().getId() }">${toView.getEmployer().getName() }</a>
+					href="viewDetailsServlet?type=employer&id=${toView.employer.id }">${toView.employer.name }</a>
 			</h1>
 			<div class="box is-bordered">
 				<h2 class="subtitle">Description</h2>
-				${toView.getJobDescription()}
+				${toView.jobDescription}
 			</div>
 			<form
 				method="post"
-				action="navigationServlet?type=job&id=${toView.getId()}">
+				action="navigationServlet?type=job&id=${toView.id}">
 				<div class="field is-grouped">
 					<div class="control">
 						<button

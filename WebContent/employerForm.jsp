@@ -27,7 +27,7 @@ https://jesobreira.github.io/Bulma-Form-Builder/
 				name="empName"
 				type="text"
 				placeholder="<c:out value="${empty toEdit ? 'Name' : ''}" />"
-				value="<c:out value='${empty toEdit ? "" : toEdit.getName() }' />"
+				value="<c:out value='${empty toEdit ? "" : toEdit.name }' />"
 				required>
 		</div>
 	</div>
@@ -44,7 +44,7 @@ https://jesobreira.github.io/Bulma-Form-Builder/
 				name="empLocation"
 				type="text"
 				placeholder="<c:out value="${empty toEdit ? 'Los Angeles, CA' : ''}" />"
-				value="<c:out value="${empty toEdit ? '' : toEdit.getLocation() }" />"
+				value="<c:out value="${empty toEdit ? '' : toEdit.location }" />"
 				class="input "
 				required>
 		</div>
@@ -61,8 +61,8 @@ https://jesobreira.github.io/Bulma-Form-Builder/
 				class="textarea"
 				id="empDescription"
 				name="empDescription"
-				wrap: "soft"
-				placeholder="<c:out value="${empty toEdit ? 'Brief Employee Description' : ''}" />"><c:out value="${empty toEdit ? '' : toEdit.getDescription() }" /></textarea>
+				wrap = "soft"
+				placeholder="<c:out value="${empty toEdit ? 'Employer Description' : ''}" />"><c:out value="${empty toEdit ? '' : toEdit.description }" /></textarea>
 		</div>
 	</div>
 
@@ -78,5 +78,4 @@ https://jesobreira.github.io/Bulma-Form-Builder/
 				class="button is-dark">Submit</button>
 		</div>
 	</div>
-
 </fieldset>
