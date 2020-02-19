@@ -13,7 +13,6 @@ https://jesobreira.github.io/Bulma-Form-Builder/
 
 <fieldset>
 
-
 	<!-- Text input-->
 
 	<div class="field">

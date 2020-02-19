@@ -31,7 +31,7 @@
 		<section class="hero">
 			<div class="hero-body">
 				<div class="container">
-					<h1 class="title">Welcome to the Job Search! You're viewing all
+					<h1 class="title">Welcome to Job Search! You're viewing all
 						listings</h1>
 					<h2 class="subtitle">Click on a job listing or employer to
 						view details.</h2>

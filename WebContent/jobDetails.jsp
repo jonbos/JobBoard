@@ -36,9 +36,7 @@
 							class="button is-link is-danger">Delete</button>
 					</div>
 				</div>
-
 			</form>
-
 		</div>
 	</div>
 </section>
