@@ -20,11 +20,10 @@ import org.hibernate.annotations.CreationTimestamp;
 @Table(name = "jobs")
 public class Job {
 
-	@Column(name = "title")
-	private String title;
-
-	@Column(name = "job_description")
-	private String jobDescription;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "create_date", updatable = false)
+	@CreationTimestamp
+	private Date created;
 
 	@ManyToOne
 	@JoinColumn(name="employer_id")
@@ -35,22 +34,19 @@ public class Job {
 	@Column(name = "id")
 	private int id;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "create_date", updatable = false)
-	@CreationTimestamp
-	private Date created;
+	@Column(name = "job_description")
+	private String jobDescription;
 
-	public Date getCreated() {
-		return created;
-	}
-
-	@PrePersist
-	protected void onCreate() {
-		created = new Date();
-	}
+	@Column(name = "title")
+	private String title;
 
 	public Job() {
 
+	}
+
+	public Job(String title) {
+		super();
+		this.title = title;
 	}
 
 	public Job(String jobTitle, Employer e) {
@@ -58,31 +54,40 @@ public class Job {
 		this.title = jobTitle;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getJobDescription() {
-		return jobDescription;
-	}
-
-	public void setJobDescription(String job_description) {
-		this.jobDescription = job_description;
+	public Date getCreated() {
+		return created;
 	}
 
 	public Employer getEmployer() {
 		return employer;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public String getJobDescription() {
+		return jobDescription;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	@PrePersist
+	protected void onCreate() {
+		created = new Date();
+	}
+
 	public void setEmployer(Employer employer) {
 		this.employer = employer;
 	}
 
-	public int getId() {
-		return id;
+	public void setJobDescription(String job_description) {
+		this.jobDescription = job_description;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }
