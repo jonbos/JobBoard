@@ -1,4 +1,4 @@
-#Job Board
+# Job Board
 ## A Job Board built with Java + JSP, JSTL and JPA
 
 ### Home Page
