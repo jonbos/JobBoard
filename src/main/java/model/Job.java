@@ -90,4 +90,10 @@ public class Job {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	@Override
+	public String toString() {
+		return "Job [created=" + created + ", employer=" + employer + ", id=" + id + ", jobDescription="
+				+ jobDescription + ", title=" + title + "]";
+	}
 }
