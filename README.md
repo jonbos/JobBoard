@@ -1,5 +1,5 @@
 # Job Board
-## A Job Board built with Java + JSP, JSTL and JPA
+## A Job Board built with Java + JPA, JSP and JSTL
 
 ### Home Page
 ![Home Page](./Documentation/Index.png)
